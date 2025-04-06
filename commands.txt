@@ -2,9 +2,6 @@ ssh lxplus8
 cmsrel CMSSW_12_4_16
 cd CMSSW_12_4_16/src; cmsenv
 
- 
-
-
 # Run nanoGen from gridpack event genration
 
 cmsDriver.py Configuration/GenProduction/python/ana.py --python_filename nanGenScratch.py --eventcontent NANOAODGEN --customise Configuration/DataProcessing/Utils.addMonitoring --datatier NANOAOD --fileout file:test.root --conditions 124X_mcRun3_2022_realistic_postEE_v1 --beamspot Realistic25ns13p6TeVEarly2022Collision --step LHE,GEN,NANOGEN --geometry DB:Extended --era Run3 --no_exec --mc -n 100
@@ -13,6 +10,9 @@ cmsDriver.py Configuration/GenProduction/python/ana.py --python_filename nanGenS
 
 cmsDriver.py Configuration/GenProduction/python/HIG-Run3Summer22EEwmLHEGS-00605-fragment.py --filein file:HIG-Run3Summer22EEwmLHEGS-00605.root     --fileout testNano.root --mc --eventcontent NANOAODGEN --datatier NANOAODSIM     --conditions 124X_mcRun3_2022_realistic_postEE_v1 --beamspot Realistic25ns13p6TeVEarly2022Collision --geometry DB:Extended --era Run3 --step GEN,NANOGEN --nThreads 4 --python_filename nanGenConfig.py     --no_exec -n -1
 
+# Run nanoGen from existing lHE file EDM RunII
+
+cmsDriver.py Configuration/GenProduction/python/fragment_3l.py --filein file:HIG-RunIISummer20UL17wmLHEGEN-13479.root     --fileout testNanoRunII.root --mc --eventcontent NANOAODGEN --datatier NANOAODSIM     --conditions 106X_mc2017_realistic_v6 --beamspot Realistic25ns13TeVEarly2017Collision --geometry DB:Extended --era Run2_2017 --step GEN,NANOGEN --nThreads 4 --python_filename nanGenConfigRunII.py     --no_exec -n -1
 
 # run 
 cmsRun nanGenConfig.py
