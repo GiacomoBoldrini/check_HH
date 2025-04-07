@@ -4,7 +4,7 @@ set -e
 
 RUN_DIR=${PWD}
 echo ">> Setting RUN_DIR to ${RUN_DIR}"
-
+source /cvmfs/cms.cern.ch/cmsset_default.sh
 CMSSW_RELEASE=CMSSW_12_4_16
 SCRAM_ARCH=el8_amd64_gcc10
 

@@ -25,7 +25,7 @@ process.load('Configuration.StandardSequences.EndOfProcess_cff')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 
 process.maxEvents = cms.untracked.PSet(
-    input = cms.untracked.int32(100),
+    input = cms.untracked.int32(10),
     output = cms.optional.untracked.allowed(cms.int32,cms.PSet)
 )
 
@@ -182,7 +182,7 @@ process.generator = cms.EDFilter("Pythia8ConcurrentHadronizerFilter",
 process.externalLHEProducer = cms.EDProducer("ExternalLHEProducer",
     args = cms.vstring('/cvmfs/cms.cern.ch/phys_generator/gridpacks/RunIII/13p6TeV/slc7_amd64_gcc700/Powheg/V2/ggHH_slc7_amd64_gcc700_CMSSW_10_6_8_workdir3_ggHH_kl_1p00_kt_1p00_c2_0p00.tgz'),
     generateConcurrently = cms.untracked.bool(True),
-    nEvents = cms.untracked.uint32(100),
+    nEvents = cms.untracked.uint32(10),
     numberOfParameters = cms.uint32(1),
     outputFile = cms.string('cmsgrid_final.lhe'),
     scriptName = cms.FileInPath('GeneratorInterface/LHEInterface/data/run_generic_tarball_cvmfs.sh')
